@@ -1,0 +1,38 @@
+<%= link_to "Back", root_path%>
+<div class="container" style="margin: auto; padding: 80px;">
+  <section>
+    <p>
+      <strong>Name:</strong>
+      <%= current_user.name %>
+    </p>
+
+    <p>
+      <strong>Email:</strong>
+      <%= current_user.email %>
+    </p>
+    <p>
+      <strong>Subsciption Status:</strong>
+      <% if (current_user.subscription_status) %>
+      subscribed
+      <%else%>
+      Not subscribed
+      <%end%>
+    </p>
+    <div>
+      <strong>Profile Pic</strong>
+      <%= link_to image_tag(current_user.avatar.url(:thumb)),(current_user.avatar.url(:original)), data: { lightbox: 'image-0'}%>
+    </div>
+  </br></br>
+  <div>
+    <strong>Images:</strong>
+    <div class="row">
+    <% current_user.images.each do |i|%>
+    <div class="col-md-4" style="padding-bottom: 15px;">
+    <%= link_to image_tag(i.url(:thumb).to_s), image_path(i.url), data: { lightbox: 'image-1'}%>
+    </div>
+    <%end%>
+    </div><br><br>
+  </div>
+</section>
+</div>
+

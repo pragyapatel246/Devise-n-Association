@@ -1,0 +1,30 @@
+<%= link_to "Change show_time", halls_show_path(:hall_id => @show.hall_id, :movie_id => @movie.id)%><br><br>
+<div class="container" style="margin: auto; padding: 80px;">
+<section>
+<p>Seats Available for this Show of <%= @show.show_time%> for Movie <%= @movie.name%> in the <%= @hall.hall_number%></p>
+<div style="width: 85%; margin: auto;">
+  <div class="table-responsive">
+    <table class="table-hover">
+    <tr>
+      <th>Seat Number</th>
+      <th>hall id</th>
+      <th>Show time</th>
+      <th>Booking Status</th>
+    </tr>
+    <% @seats.each do |s|%>
+    <tr>
+      <td><%= s.seat_no%></td>
+      <td><%= @hall.hall_number%></td>
+      <td><%= @show.show_time%></td>
+      <td><% if s.booking_status==false%>
+        <%= link_to "Seat Available", update_seat_path(:id => s.id), method: :get ,data: { confirm: "Are you sure you want to book this seat?"}%>
+        <%else%>
+        Booked
+        <%end%> </td>
+      </tr>
+      <% end -%>
+    </table>
+  </div>
+</div>
+</section>
+</div>

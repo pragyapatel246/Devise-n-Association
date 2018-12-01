@@ -1,0 +1,22 @@
+
+.field{
+    width: 100%;
+    padding: 0px 12px;
+    margin: 15px 0;
+    box-sizing: border-box
+}
+
+.session-new{
+    text-align: center;
+    margin: auto;
+    width: 50%;
+    height: 50%;
+    border: 2px solid black;
+    padding: 10px;
+  }
+  a:-webkit-any-link {
+    color: navy;
+    cursor: pointer;
+    text-decoration: underline;
+  }
+

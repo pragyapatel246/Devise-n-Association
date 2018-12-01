@@ -1,0 +1,21 @@
+<%= link_to "Back to change the Hall", movies_show_path(:movie_id => @movie.id)%>
+<div class="container" style="margin: auto; padding: 80px;">
+
+<section>
+  <p>Shows Available for <%= @movie.name %> in <%= @hall.hall_number%></p>
+  <div style="width: 50%; margin: auto; padding: 30px;">
+    <div class="table-responsive">
+      <table class="table-hover">
+        <tr>
+          <th>Select Show Time</th>
+        </tr>
+        <% @shows.each do |s|%>
+        <tr>
+          <td><%= link_to "#{s.show_time}", shows_show_path(:show_id => s.id)%></td>
+        </tr>
+        <% end -%>
+      </table>
+    </div>
+  </div>
+</section>
+</div>

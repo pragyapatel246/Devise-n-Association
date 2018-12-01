@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  show_time: MyString
+  movie: one
+  hall: one
+
+two:
+  show_time: MyString
+  movie: two
+  hall: two

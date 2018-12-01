@@ -1,0 +1,40 @@
+<%= link_to "Back to movies", homes_home_path %>
+<div class="container" style="margin: auto; padding: 80px;">
+
+<section>
+<p>Hall available for the Movie : <%= @movie.name%></p>
+  <div style="width: 60%; margin: auto; padding: 50px;">
+    <% if (current_user.subscription_status == true)%>
+    <% if @movie.halls.present?%>
+    <div class="table-responsive">
+      <table class="table-hover">
+        <tr>
+          <th>Select Movie Hall</th>
+        </tr>
+        <% @halls.each do |h|%>
+        <tr>
+          <td><%= link_to "#{h.hall_number}", halls_show_path(:hall_id => h.id, :movie_id => @movie.id)%></td>
+        </tr>
+        <% end -%>
+      </table>
+      <%else%>
+      <h4>No halls Available for <%= @movie.name%></h4>
+      <%end%>
+      <%elsif Movie.not_released.ids.include?(@movie.id)%>
+      <h4>You are not Subscribed. You can not book a show in advance</h4>
+      <% else%>
+      <table>
+        <tr>
+          <th>Select Movie Hall</th>
+        </tr>
+        <% @halls.each do |h|%>
+        <tr>
+          <td><%= link_to "#{h.hall_number}", halls_show_path(:hall_id => h.id, :movie_id => @movie.id)%></td>
+        </tr>
+        <% end -%>
+      </table>
+      <% end -%>
+    </div>
+  </div>
+</section>
+</div>

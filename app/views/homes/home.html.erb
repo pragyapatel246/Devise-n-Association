@@ -1,0 +1,32 @@
+<div class="container" style="margin: auto; padding: 80px;">
+  <section>
+    <p>Click on the movie you want to watch</p>
+  <div class="table-responsive">
+      <div >
+        <table class="table-hover">
+          <tr>
+            <th>Released Movie</th>
+          </tr>
+          <% @released_movies.each do |m|%>
+          <tr>
+            <td><%= link_to "#{m.name}", movies_show_path(:movie_id => m.id)%></td>
+          </tr>
+          <% end -%>
+        </table>
+      </div>
+
+      <div>
+        <table class="table-hover">
+          <tr>
+            <th>Upcoming Movie</th>
+          </tr>
+          <% @unreleased_movies.each do |m|%>
+          <tr>
+            <td><%= link_to "#{m.name}", movies_show_path(:movie_id => m.id)%></td>
+          </tr>
+          <% end -%>
+        </table>
+      </div>
+    </div>
+  </section>
+</div>

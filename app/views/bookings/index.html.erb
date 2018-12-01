@@ -1,0 +1,27 @@
+<%= link_to "Back to movies", homes_home_path %>
+<div class="container" style="margin: auto; padding: 80px;">
+
+<section>
+  <div>
+    <div class="table-responsive">
+      <table class="table-hover">
+        <tr>
+          <th>Movie Name</th>
+          <th>Hall</th>
+          <th>Show Time</th>
+          <th>Seat</th>
+          <th>Delete Booking</th>
+        </tr>
+        <% @bookings.each do |bk|%>
+          <td><%= bk.show.movie.name %></td>
+          <td><%= bk.show.hall.hall_number %></td>
+          <td><%= bk.show.show_time %></td>
+          <td><%= bk.seat.seat_no%></td>
+          <td><%= link_to "Delete Booking", bookings_delete_path(:id => bk.id), data: { confirm: "Are you sure you want to delete this booking?"}%></td>
+        </tr>
+        <% end -%>
+      </table>
+    </div>
+  </div>
+</section>
+</div>
